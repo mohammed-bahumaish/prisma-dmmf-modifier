@@ -1,4 +1,53 @@
-# Prisma DMMF Modifier - Architecture Documentation
+# Prisma DMMF Modifier
+
+A TypeScript library designed to programmatically modify Prisma's DMMF (Datamodel Meta Format) - the internal representation of Prisma schema.
+
+[![npm version](https://badge.fury.io/js/%40mohammed-bahumai%2Fprisma-dmmf-modifier.svg)](https://www.npmjs.com/package/@mohammed-bahumai/prisma-dmmf-modifier)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+
+## Installation
+
+```bash
+# Using npm
+npm install @prisma-editor/prisma-dmmf-modifier
+
+# Using yarn
+yarn add @prisma-editor/prisma-dmmf-modifier
+
+# Using pnpm
+pnpm add @prisma-editor/prisma-dmmf-modifier
+```
+
+## Quick Start
+
+```typescript
+import { DMMFModifier, AddModelCommand, AddFieldCommand } from '@prisma-editor/prisma-dmmf-modifier';
+
+// Create a new modifier with initial datamodel
+const modifier = new DMMFModifier(datamodel);
+
+// Add a model
+const addModelCommand = new AddModelCommand("User");
+modifier.do(addModelCommand);
+
+// Add a field to the model
+const addFieldCommand = new AddFieldCommand("User", {
+  name: "email",
+  kind: "scalar",
+  type: "String",
+  isRequired: true,
+  // other field properties...
+});
+modifier.do(addFieldCommand);
+
+// Get the modified datamodel
+const modifiedDatamodel = modifier.get();
+
+// Undo the last operation
+modifier.undo();
+```
+
+# Architecture Documentation
 
 ## Overview
 

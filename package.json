@@ -1,18 +1,32 @@
 {
-  "name": "@prisma-editor/prisma-dmmf-modifier",
+  "name": "@mohammed-bahumaish/prisma-dmmf-modifier",
   "version": "1.0.0",
+  "description": "A TypeScript library to programmatically modify Prisma's DMMF (Datamodel Meta Format)",
   "license": "MIT",
+  "author": "Mohammed Bahumaish <mohammed.bahumaish@gmail.com>",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/mohammed-bahumaish/prisma-dmmf-modifier.git"
+  },
+  "keywords": [
+    "prisma",
+    "dmmf",
+    "schema",
+    "modifier",
+    "datamodel"
+  ],
   "main": "./dist/index.js",
   "module": "./dist/index.mjs",
   "types": "./dist/index.d.ts",
   "files": [
-    "src/**"
+    "dist/**"
   ],
   "scripts": {
     "build": "tsup",
     "clean": "rimraf .turbo node_modules dist",
     "dev": "tsup --watch",
-    "test": "jest"
+    "test": "jest",
+    "prepublishOnly": "npm run build"
   },
   "dependencies": {
     "@prisma/engine-core": "^4.10.1",
