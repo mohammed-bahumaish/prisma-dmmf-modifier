@@ -32,6 +32,8 @@
     "@prisma/engine-core": "^4.10.1",
     "@prisma/generator-helper": "^4.10.1",
     "@prisma/internals": "^4.10.1",
+    "dotenv": "^8.2.0",
+    "node-fetch": "^3.3.2",
     "strip-ansi": "^7.0.1"
   },
   "devDependencies": {
